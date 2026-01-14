@@ -28,7 +28,9 @@ const Header: React.FC = () => {
 
   const navigateRegister  = (e: any) => {
     e.preventDefault();
-    navigate("/signup");
+    navigate("/signup",{
+      
+    });
   }
 
   return (

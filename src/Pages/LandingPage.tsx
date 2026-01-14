@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring, type Variants} from "motion/react"
 import {
   FaHeart,
@@ -132,6 +132,17 @@ const DoctorsSection: React.FC = () => {
       available: false
     }
   ];
+
+  const [first, setfirst] = useState([]);
+
+  const fun1 = async () =>{
+    const res = await fetch("");
+  };
+  
+  useEffect(() => {
+    fun1();
+  }, [])
+  
 
   return (
     <section className="py-24 bg-gray-50/50">
