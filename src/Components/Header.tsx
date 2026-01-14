@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -16,13 +16,20 @@ const navLinks = [
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation(); // Used to track route changes for the underline
+  const location = useLocation();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const navigateRegister  = (e: any) => {
+    e.preventDefault();
+    navigate("/signup");
+  }
 
   return (
     <motion.header 
@@ -70,12 +77,13 @@ const Header: React.FC = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/login" className="px-5 py-2 text-blue-50 bg-linear-to-r from-blue-600 to-blue-400 font-medium hover:bg-blue-50 rounded-full transition-all">
+            <Link to="/signin" className="px-5 py-2 text-blue-50 bg-linear-to-r from-blue-600 to-blue-400 font-medium hover:bg-blue-50 rounded-full transition-all">
               Sign In
             </Link>
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={navigateRegister}
               className="px-6 py-2 bg-black text-white rounded-full font-medium shadow-md hover:bg-blue-700 transition-all"
             >
               Register
@@ -131,10 +139,10 @@ const Header: React.FC = () => {
               </nav>
 
               <div className="p-6 border-t space-y-3">
-                <Link to="/login" className="block text-center w-full py-3 text-blue-600 font-bold border border-blue-100 rounded-2xl">
+                <Link to="/signin" className="block text-center w-full py-3 text-blue-600 font-bold border border-blue-100 rounded-2xl">
                   Sign In
                 </Link>
-                <Link to="/register" className="block text-center w-full py-3 bg-blue-600 text-white font-bold rounded-2xl shadow-lg shadow-blue-200">
+                <Link to="/signup" className="block text-center w-full py-3 bg-blue-600 text-white font-bold rounded-2xl shadow-lg shadow-blue-200">
                   Register
                 </Link>
               </div>
