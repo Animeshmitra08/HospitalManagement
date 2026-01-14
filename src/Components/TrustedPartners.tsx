@@ -50,7 +50,7 @@ const TrustedPartners: React.FC = () => {
           {scrollingPartners.map((partner, index) => (
             <div
                 key={index}
-                className="group flex items-center justify-center px-20 py-18 transition-all duration-300"
+                className="group flex items-center justify-center px-20 py-6 md:py-18 transition-all duration-300"
             >
                 <span
                 className="

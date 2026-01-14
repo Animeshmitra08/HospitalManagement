@@ -82,7 +82,7 @@ const Header: React.FC = () => {
             </motion.button>
           </div>
 
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-gray-700 p-2">
+          <button onClick={() => setIsOpen(!isOpen)} className={`md:hidden text-gray-700 p-2 ${scrolled ? "rounded-full border border-blue-300" : ""}`}>
             {isOpen ? <FaXmark size={24} /> : <FaBars size={24} />}
           </button>
         </div>
