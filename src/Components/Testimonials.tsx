@@ -49,7 +49,7 @@ const TestimonialsSection: React.FC = () => {
         {/* Slider Section */}
         <div className="relative pb-12">
             {/* Custom Navigation */}
-            <div className="absolute -top-20 right-0 flex gap-3 z-10">
+            <div className="absolute -top-20 right-0 md:flex gap-3 z-10 md:visible hidden">
                 <button className="testimonial-prev w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-md hover:bg-blue-600 hover:text-white transition-all">
                 <FaArrowLeft />
                 </button>
